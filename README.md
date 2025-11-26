@@ -9,3 +9,4 @@
 - for now I will move on to implimenting prediction logic for my model - I will be using a torchvision pretrained resnet model and the iris dataset.
 - I found [this article](https://medium.com/data-science/create-an-image-classification-web-app-using-pytorch-and-streamlit-f043ddf00c24) that may be useful as it goes through creating a classifier app using a streamlit and a resnet model
 - realised that for now I think I can just make predictions using the ImageNet dataset the resnet model is trained on
+- in order to get a human-readable output from the model prediction, I need to get the names of all the classes in a text file and load them into a list.
