@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312952d2-0a4d-4c49-ab6b-5ccb833849b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ml/predict.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ml/imagenet_classes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ml/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/ml/predict.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,11 +83,14 @@
       <option name="presentableId" value="Default" />
       <updated>1764136276791</updated>
       <workItem from="1764136277819" duration="3545000" />
-      <workItem from="1764142180379" duration="790000" />
+      <workItem from="1764142180379" duration="5225000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ml_classifier$predict.coverage" NAME="predict Coverage Results" MODIFIED="1764146907619" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/ml" />
   </component>
 </project>
