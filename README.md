@@ -10,3 +10,6 @@
 - I found [this article](https://medium.com/data-science/create-an-image-classification-web-app-using-pytorch-and-streamlit-f043ddf00c24) that may be useful as it goes through creating a classifier app using a streamlit and a resnet model
 - realised that for now I think I can just make predictions using the ImageNet dataset the resnet model is trained on
 - in order to get a human-readable output from the model prediction, I need to get the names of all the classes in a text file and load them into a list.
+
+### Fri 5/12/2025
+- The next step i'm considering is the streamlit frontend, to get some idea of final product. Everything else will be easier to build from there.
