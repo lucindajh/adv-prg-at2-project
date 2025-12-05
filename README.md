@@ -13,3 +13,4 @@
 
 ### Fri 5/12/2025
 - The next step i'm considering is the streamlit frontend, to get some idea of final product. Everything else will be easier to build from there.
+- I now have a frontend that allows the user to upload an image, and displays it. I will need to revisit my prediction logic to figure out how i can implement it in predict button code.
