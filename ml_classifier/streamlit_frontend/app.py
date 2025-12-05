@@ -1,44 +1,37 @@
 import streamlit as streamlit
 import requests
+from PIL import Image
 
 streamlit.set_page_config(
-    page_title="Text Classifier",
+    page_title="Image Classifier",
     layout="centered"
 )
 
-streamlit.title("News Topic Classifier")
-streamlit.write("Enter a sentence or upload a plain-text file to classify it into one of 20 news categories.")
+streamlit.title("Image Classifier")
+streamlit.write("Upload a jpeg file to classify it into one of the imagenet categories.")
 
 # --- Input Form ---
-text_input = streamlit.text_area("Text input", height=150)
-uploaded_file = streamlit.file_uploader("Optional: Upload a .txt file", type=["txt"])
+uploaded_file = streamlit.file_uploader("Upload a .jpg file", type=["jpg"])
 
 if streamlit.button("Predict"):
-    text_clean = text_input.strip()
-    file_bytes = uploaded_file.getvalue() if uploaded_file else b""
 
-    if not text_clean and not file_bytes:
-        streamlit.warning("Please provide text or upload a .txt file.")
+    if not uploaded_file:
+        streamlit.warning("Please provide text or upload a .jpg file.")
     else:
+        image = uploaded_file.getvalue()
         try:
-            if file_bytes:
-                files = {
-                    "file": (
-                        uploaded_file.name or "upload.txt",
-                        file_bytes,
-                        "text/plain",
-                    )
-                }
-                response = requests.post(
-                    "http://localhost:8000/api/predict/",
-                    data={"text": text_clean},
-                    files=files,
+
+            files = {
+                "file": (
+                    uploaded_file.name or "upload.txt",
+                    image,
+                    "text/plain",
                 )
-            else:
-                response = requests.post(
-                    "http://localhost:8000/api/predict/",
-                    json={"text": text_clean},
-                )
+            }
+            response = requests.post(
+                "http://localhost:8000/api/predict/",
+                files=files,
+            )
 
             if response.status_code == 200:
                 prediction = response.json().get("prediction")
@@ -46,4 +39,4 @@ if streamlit.button("Predict"):
             else:
                 streamlit.error(f"API error {response.status_code}: {response.text}")
         except requests.exceptions.ConnectionError:
-            streamlit.error("Could not connect to Django backend. Is the server running?")
+              streamlit.error("Could not connect to Django backend. Is the server running?")
