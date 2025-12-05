@@ -15,7 +15,7 @@ uploaded_file = streamlit.file_uploader("Upload a .jpg file", type=["jpg"])
 
 if uploaded_file:
     image = Image.open(uploaded_file)
-    streamlit.image(image, caption='Uploaded image.', use_column_width=True)
+    streamlit.image(image, caption='Uploaded image.')
 
 if streamlit.button("Predict"):
 
