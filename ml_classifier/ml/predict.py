@@ -21,7 +21,7 @@ with open("imagenet_classes.txt", "r") as file:
     file.close()
 
 
-def predict(image_path: str):
+def predict(img: PIL.Image):
     img = Image.open(image_path)
     batch_t = torch.unsqueeze(transform(img), 0)
 
