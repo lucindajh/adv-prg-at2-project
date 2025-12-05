@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class Prediction(model.Model):
     """Represents prediction metadata from prediction process"""
