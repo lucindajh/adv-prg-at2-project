@@ -20,16 +20,14 @@ if uploaded_file:
 if streamlit.button("Predict"):
 
     if not uploaded_file:
-        streamlit.warning("Please provide text or upload a .jpg file.")
+        streamlit.warning("Please upload a .jpg file.")
     else:
         image = Image.open(uploaded_file)
 
-
         # try:
-        #
         #     files = {
         #         "file": (
-        #             uploaded_file.name or "upload.txt",
+        #             uploaded_file.name,
         #             image,
         #             "text/plain",
         #         )
@@ -45,4 +43,4 @@ if streamlit.button("Predict"):
         #     else:
         #         streamlit.error(f"API error {response.status_code}: {response.text}")
         # except requests.exceptions.ConnectionError:
-        #       streamlit.error("Could not connect to Django backend. Is the server running?")
+        #        streamlit.error("Could not connect to Django backend. Is the server running?")
