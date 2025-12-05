@@ -24,23 +24,23 @@ if streamlit.button("Predict"):
     else:
         image = Image.open(uploaded_file)
 
-        # try:
-        #     files = {
-        #         "file": (
-        #             uploaded_file.name,
-        #             image,
-        #             "text/plain",
-        #         )
-        #     }
-        #     response = requests.post(
-        #         "http://localhost:8000/api/predict/",
-        #         files=files,
-        #     )
-        #
-        #     if response.status_code == 200:
-        #         prediction = response.json().get("prediction")
-        #         streamlit.success(f"Prediction: {prediction}")
-        #     else:
-        #         streamlit.error(f"API error {response.status_code}: {response.text}")
-        # except requests.exceptions.ConnectionError:
-        #        streamlit.error("Could not connect to Django backend. Is the server running?")
+        try:
+            files = {
+                "file": (
+                    uploaded_file.name,
+                    image,
+                    "image/jpg",
+                )
+            }
+            response = requests.post(
+                "http://localhost:8000/api/predict/",
+                files=files,
+            )
+
+            if response.status_code == 200:
+                prediction = response.json().get("prediction")
+                streamlit.success(f"Prediction: {prediction}")
+            else:
+                streamlit.error(f"API error {response.status_code}: {response.text}")
+        except requests.exceptions.ConnectionError:
+               streamlit.error("Could not connect to Django backend. Is the server running?")
