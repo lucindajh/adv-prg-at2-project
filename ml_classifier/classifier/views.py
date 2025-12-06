@@ -1,3 +1,5 @@
+import json
+from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from ml.predict import predict
@@ -14,6 +16,27 @@ def serialise_prediction(prediction: Prediction) -> dict:
         "probability": prediction.probability
     }
 
+
+def classify_view(request):
+    # logging.basicConfig(level=logging.INFO)
+    #
+    # user = create_user("admin", "Ben")
+    # upload_document(user, "project_plan.pdf")
+    #
+    # logs = []
+    # try:
+    #     for line in read_logs("notifier/logs.txt"):
+    #         logs.append(line)
+    # except FileNotFoundError:
+    #     logs.append("No logs yet.")
+    #
+    # asyncio.run(fetch_all_metadata())
+
+    # return render(request, "notifier/index.html", {
+    #     "user": user,
+    #     "logs": logs
+    # })
+    return render(request, "notifier/index.html")
 
 @csrf_exempt
 def prediction_for_image(request):

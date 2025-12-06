@@ -23,11 +23,11 @@ if streamlit.button("Predict"):
         streamlit.warning("Please upload a .jpg file.")
     else:
         image = Image.open(uploaded_file)
-
+        image_bytes = image.tobytes()
         try:
-            files = {'image_upload': image}
+            files = {'image_upload': image_bytes}
             response = requests.post(
-                "http://localhost:8000/api/predict/",
+                "http://localhost:8000/api/predictions/",
                 files=files,
             )
 

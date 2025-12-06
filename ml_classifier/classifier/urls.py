@@ -15,9 +15,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import (
-    prediction_for_image
+    prediction_for_image,
+    classify_view
 )
 
 urlpatterns = [
-    path('api/predictions', prediction_for_image, name='prediction_for_image'),
+    path('/', classify_view, name='home'),
+    path('api/predictions/', prediction_for_image, name='prediction_for_image'),
 ]
