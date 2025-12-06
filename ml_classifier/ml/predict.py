@@ -21,7 +21,7 @@ with open("ml/imagenet_classes.txt", "r") as file:
     file.close()
 
 
-def predict(img: PIL.Image) -> dict:
+def predict(img: Image) -> dict:
     """ Makes a prediction on an image
         Args:
             img: PIL image for the prediction
