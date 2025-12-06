@@ -5,6 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from ml.predict import predict
 from classifier.models import Prediction
 from PIL import Image
+from io import BytesIO
 # Create your views here.
 
 
@@ -38,14 +39,16 @@ def classify_view(request):
     # })
     return render(request, "notifier/index.html")
 
+
 @csrf_exempt
 def prediction_for_image(request):
     if request.method == "GET":
         predictions = Prediction.objects.order_by("-predicted_at")
         data = serialise_prediction(predictions[0])
         return JsonResponse(data)
-    if request.method == "POST" and request.FILES.get('image_upload'):
-        uploaded_image = request.FILES['image_upload']
+    if request.method == "POST" and request.FILES.get('file'):
+        uploaded_image = request.FILES['file']
+        # stream = uploaded_image.open()
         try:
             img = Image.open(uploaded_image)
         except IOError:
@@ -57,7 +60,8 @@ def prediction_for_image(request):
                 imagenet_class=prediction_output['class'],
                 probability=prediction_output['prob']
             )
-            return JsonResponse(status=200)
+            return JsonResponse(serialise_prediction(prediction), status=200)
         else:
             return JsonResponse({"error": "Image not found"}, status=400)
-    return HttpResponseNotAllowed(["GET", "POST"])
+    else:
+        return HttpResponseNotAllowed(["GET", "POST"])
