@@ -31,4 +31,5 @@
 - My guess is I'm probably missing something in my ml_classifier urls
 - after reviewing the notifier app, my second guess is that my site is missing a home page. I'm just going to run the streamlit app and see what happens when i try to use that
 - I get the same error when trying to call to the api from the streamlit frontend
+- The error I was getting from the streamlit frontend was due to my url being written incorrectly in the api call. The calls are now going through to that url and i just need to fix the code
   
