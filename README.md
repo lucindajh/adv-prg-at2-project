@@ -13,3 +13,8 @@
 
 ### Fri 5/12/2025
 - The next step i'm considering is the streamlit frontend, to get some idea of final product. Everything else will be easier to build from there.
+- I now have a frontend that allows the user to upload an image, and displays it. I will need to revisit my prediction logic to figure out how i can implement it in predict button code.
+- I merged the ml branch into my frontend branch to try and access the predict function- streamlit doesnt seem to like importing modules from outside the app's directory. This probably means i need to setup rest api calls to my classifier backend before i can do any testing of the predict functionality through the frontend.
+- I'll now work on my prediction model so I can get started on a view for predictions.
+
+  
