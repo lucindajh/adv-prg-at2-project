@@ -29,4 +29,6 @@
     api/predictions [name='prediction_for_image']
     The empty path didn’t match any of these.
 - My guess is I'm probably missing something in my ml_classifier urls
+- after reviewing the notifier app, my second guess is that my site is missing a home page. I'm just going to run the streamlit app and see what happens when i try to use that
+- I get the same error when trying to call to the api from the streamlit frontend
   
