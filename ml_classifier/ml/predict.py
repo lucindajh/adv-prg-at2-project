@@ -15,7 +15,7 @@ transform = tv.transforms.Compose([
 ])
 
 classes = []
-with open("imagenet_classes.txt", "r") as file:
+with open("ml/imagenet_classes.txt", "r") as file:
     for line in file:
         classes.append(line.rstrip())
     file.close()
