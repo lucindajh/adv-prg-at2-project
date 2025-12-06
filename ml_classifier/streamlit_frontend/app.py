@@ -38,8 +38,8 @@ if streamlit.button("Predict"):
             )
 
             if response.status_code == 200:
-                prediction = response.json().get("prediction")
-                streamlit.success(f"Prediction: {prediction}")
+                prediction = response.json()
+                streamlit.success(f"Class: {prediction['imagenet_class']}, Confidence: {prediction['probability']}")
             else:
                 streamlit.error(f"API error {response.status_code}: {response.text}")
         except requests.exceptions.ConnectionError:
