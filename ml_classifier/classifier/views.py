@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from ml.predict import predict
+from classifier.models import Prediction
 from PIL import Image
 # Create your views here.
 
