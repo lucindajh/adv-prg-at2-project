@@ -28,7 +28,6 @@ def predict(img: PIL.Image) -> dict:
         Returns:
             the class name and probability of the most confident output
     """
-    img = Image.open(image_path)
     batch_t = torch.unsqueeze(transform(img), 0)
 
     model.eval()
