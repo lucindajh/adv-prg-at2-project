@@ -7,4 +7,4 @@ class Prediction(models.Model):
     predicted_at = models.DateTimeField(auto_now_add=True)
     user = models.CharField(max_length=30)
     imagenet_class = models.TextField(max_length=30)
-    probability = models.DecimalField()
+    probability = models.DecimalField(decimal_places=2, max_digits=6)
