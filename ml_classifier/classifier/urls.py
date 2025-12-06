@@ -1,6 +1,4 @@
 """
-URL configuration for ml_classifier project.
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.2/topics/http/urls/
 Examples:
@@ -15,10 +13,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
+from .views import (
+    prediction_for_image,
+    classify_view
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('accounts/', include('django.contrib.auth.urls')),
-    path('', include('classifier.urls'))
+    path('/', classify_view, name='home'),
+    path('api/predictions/', prediction_for_image, name='prediction_for_image'),
 ]

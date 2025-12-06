@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="312952d2-0a4d-4c49-ab6b-5ccb833849b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/streamlit_frontend/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/streamlit_frontend/app.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +23,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectColorInfo">{
@@ -38,8 +43,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "7-create-ml-module",
-    "last_opened_file_path": "C:/Users/Lucinda/Downloads/app",
+    "git-widget-placeholder": "5-implement-ui",
+    "last_opened_file_path": "C:/Users/Lucinda/source/repos/adv-prg-at2-project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -82,7 +87,7 @@
       <updated>1764136276791</updated>
       <workItem from="1764136277819" duration="3545000" />
       <workItem from="1764142180379" duration="6246000" />
-      <workItem from="1764916153645" duration="330000" />
+      <workItem from="1764916153645" duration="5434000" />
     </task>
     <servers />
   </component>
