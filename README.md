@@ -23,5 +23,10 @@
 - note: django objects.order_by method, "-" at start of the field name to order by indicates descending order
 - for now to get the prediction for an image I'm just getting a list ordered by (descending) predicted_at field, so just the most recent one. This should be fine for my use case at the moment but there could be a more fail-safe way to do it in future if I use the fields in the prediction model more effectively, or add one that can link the specific image sent to the prediction
 - I'm going to change the output of my predict function to a dict to make it easier to get the values i need
-
+- now moving on to testing the UI - i've connected up the urls and made and applied the first migrations, now running the test server gives me this error:
+  Using the URLconf defined in ml_classifier.urls, Django tried these URL patterns, in this order:
+    admin/
+    api/predictions [name='prediction_for_image']
+    The empty path didn’t match any of these.
+- My guess is I'm probably missing something in my ml_classifier urls
   
