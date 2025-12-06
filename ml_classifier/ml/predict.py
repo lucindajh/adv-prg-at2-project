@@ -21,8 +21,13 @@ with open("imagenet_classes.txt", "r") as file:
     file.close()
 
 
-def predict(img: PIL.Image):
-    img = Image.open(image_path)
+def predict(img: PIL.Image) -> dict:
+    """ Makes a prediction on an image
+        Args:
+            img: PIL image for the prediction
+        Returns:
+            the class name and probability of the most confident output
+    """
     batch_t = torch.unsqueeze(transform(img), 0)
 
     model.eval()
@@ -30,8 +35,12 @@ def predict(img: PIL.Image):
 
     probabilities = torch.nn.functional.softmax(out, dim=1)[0] * 100
     _, indices = torch.sort(out, descending=True)
+    data = {
+        'class': classes[indices[0][0]],
+        'prob': probabilities[indices[0][0]].item()
+    }
 
-    return [(classes[idx], probabilities[idx].item()) for idx in indices[0][:5]]
+    return data
 
 
 
