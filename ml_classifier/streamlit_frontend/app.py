@@ -25,13 +25,7 @@ if streamlit.button("Predict"):
         image = Image.open(uploaded_file)
 
         try:
-            files = {
-                "file": (
-                    uploaded_file.name,
-                    image,
-                    "image/jpg",
-                )
-            }
+            files = {'image_upload': image}
             response = requests.post(
                 "http://localhost:8000/api/predict/",
                 files=files,
