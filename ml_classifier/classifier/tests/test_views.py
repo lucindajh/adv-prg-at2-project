@@ -9,6 +9,7 @@ from unittest.mock import patch
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.core.files.uploadedfile import SimpleUploadedFile
+from django.contrib.auth.models import User, Permission
 
 from classifier.models import Prediction
 import classifier.views as classifier_views
@@ -82,6 +83,7 @@ class PredictionForImageTests(TestCase):
         )
         self.assertEqual(response.status_code, 405)
 
+
 class SerialiseDocumentTests(TestCase):
 
     def test_serialise_prediction(self):
@@ -92,3 +94,20 @@ class SerialiseDocumentTests(TestCase):
         self.assertEqual(data['imagenet_class'], prediction.imagenet_class)
         self.assertEqual(data['probability'], prediction.probability)
 
+
+class ClassifierDashboardTests(TestCase):
+
+    def setUp(self):
+        self.password = "password1"
+        self.user = User.objects.create_user(
+            username="testuser",
+            email="testuser@example.com",
+            password="password1",
+        )
+        permission = Permission.objects.get(codename="view_prediction")
+        self.user.user_permissions.add(permission)
+
+    def test_render_index(self):
+        assert self.client.login(username=self.user.username, password=self.password)
+        response = self.client.get(reverse("home"))
+        self.assertTemplateUsed(response, "index.html")
