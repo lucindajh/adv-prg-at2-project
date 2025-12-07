@@ -39,7 +39,6 @@ def classifier_dashboard(request):
     # asyncio.run(fetch_all_metadata())
 
     return render(request, "index.html", {
-        "user": request.user,
         "logs": logs
     })
 
