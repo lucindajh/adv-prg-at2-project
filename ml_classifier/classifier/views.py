@@ -2,8 +2,10 @@ import json
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required, permission_required
 from ml.predict import predict
 from classifier.models import Prediction
+from classifier.utils.user_factory import create_user
 from PIL import Image
 from io import BytesIO
 # Create your views here.
@@ -18,6 +20,7 @@ def serialise_prediction(prediction: Prediction) -> dict:
     }
 
 
+@login_required
 def classify_view(request):
     # logging.basicConfig(level=logging.INFO)
     #
