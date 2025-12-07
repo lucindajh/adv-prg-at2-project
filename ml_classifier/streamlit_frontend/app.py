@@ -43,4 +43,4 @@ if streamlit.button("Predict"):
             else:
                 streamlit.error(f"API error {response.status_code}: {response.text}")
         except requests.exceptions.ConnectionError:
-               streamlit.error("Could not connect to Django backend. Is the server running?")
+            streamlit.error("Could not connect to Django backend. Is the server running?")
