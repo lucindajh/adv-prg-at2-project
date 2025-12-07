@@ -42,3 +42,4 @@
 - The code now runs without errors but i dont see the output in the app.log file I made so I probably missed some configuration steps
 - Logs are going through now and I added a timestamp, I'm now going to move on to the observer to log prediction metadata
 - I implemented my observer so I can see in the logs the time between each step in the prediction process. This is useful for assessing any need for optimisation but is quite verbose so I may consider moving this elsewhere for V2.
+- Before I move on to the authentication, I'm just going to finalise the ml module issue, which I hadn't yet done as it tests havent been implemented- at this point I've made changes to that module on several other branches so I think it will be best to just update it and then push it into main, and do the testing for it when I'm ready to work on the tests for the whole application.
