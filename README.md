@@ -47,4 +47,5 @@
 - The last component I need to add before testing is user error messaging on the front end. This should just involve changing some of the streamlit code to incorporate dialogues.
 - The streamlit dialogues don't seem to work the way I need them too, so for error messaging I'm just going to stick with the regular streamlit errors I already have and merge this issue
 - so far I've written a couple of tests on the classifier views, I'm going to push those up and get the django workflow implemented so I can see my test coverage as I move forward
+- I got the workflow running, and it came back with an overall 75% coverage- I can also now see exactly which parts of the code I need to write tests for
 
