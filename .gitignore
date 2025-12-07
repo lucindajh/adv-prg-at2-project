@@ -2,6 +2,7 @@
 ### Python template
 # Byte-compiled / optimized / DLL files
 ml_classifier/ml_classifier/__pycache__/
+ml_classifier/classifier/__pycache__/
 *.py[cod]
 *$py.class
 
