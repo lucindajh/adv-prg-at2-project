@@ -52,6 +52,35 @@ class PredictionForImageTests(TestCase):
         self.assertTrue(response.json()['imagenet_class'])
         self.assertTrue(response.json()['probability'])
 
+    def test_bad_request_put(self):
+        image = build_test_image_upload()
+        url = reverse("prediction_for_image")
+        response = self.client.put(
+            url,
+            {"file": image},
+            format="multipart"
+        )
+        self.assertEqual(response.status_code, 405)
+
+    def test_bad_request_delete(self):
+        image = build_test_image_upload()
+        url = reverse("prediction_for_image")
+        response = self.client.delete(
+            url,
+            {"file": image},
+            format="multipart"
+        )
+        self.assertEqual(response.status_code, 405)
+
+    def test_bad_request_patch(self):
+        image = build_test_image_upload()
+        url = reverse("prediction_for_image")
+        response = self.client.patch(
+            url,
+            {"file": image},
+            format="multipart"
+        )
+        self.assertEqual(response.status_code, 405)
 
 class SerialiseDocumentTests(TestCase):
 

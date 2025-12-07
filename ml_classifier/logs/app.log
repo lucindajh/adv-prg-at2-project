@@ -62,3 +62,15 @@
 2025-12-07 18:57:18.008162 - [PREDICT] class names loaded
 2025-12-07 18:57:18.009166 - [PREDICT] probabilities generated. Top probabilities:
 [('matchstick', 9.356307983398438), ('spotlight', 5.9892730712890625), ('nematode', 4.353428363800049), ('lighter', 2.8772716522216797), ('digital clock', 2.2732033729553223)]
+2025-12-07 20:26:45.833842 - [PREDICT] model loaded
+2025-12-07 20:26:45.833842 - [PREDICT] created transforms
+2025-12-07 20:26:45.853865 - [PREDICT] output generated
+2025-12-07 20:26:45.854860 - [PREDICT] class names loaded
+2025-12-07 20:26:45.855859 - [PREDICT] probabilities generated. Top probabilities:
+[('matchstick', 9.356307983398438), ('spotlight', 5.9892730712890625), ('nematode', 4.353428363800049), ('lighter', 2.8772716522216797), ('digital clock', 2.2732033729553223)]
+2025-12-07 20:28:51.537779 - [PREDICT] model loaded
+2025-12-07 20:28:51.537779 - [PREDICT] created transforms
+2025-12-07 20:28:51.556784 - [PREDICT] output generated
+2025-12-07 20:28:51.557786 - [PREDICT] class names loaded
+2025-12-07 20:28:51.557786 - [PREDICT] probabilities generated. Top probabilities:
+[('matchstick', 9.356307983398438), ('spotlight', 5.9892730712890625), ('nematode', 4.353428363800049), ('lighter', 2.8772716522216797), ('digital clock', 2.2732033729553223)]
