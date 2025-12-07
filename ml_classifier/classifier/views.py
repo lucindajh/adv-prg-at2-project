@@ -37,7 +37,7 @@ def classify_view(request):
     #     "user": user,
     #     "logs": logs
     # })
-    return render(request, "notifier/index.html")
+    return render(request, "index.html")
 
 
 @csrf_exempt

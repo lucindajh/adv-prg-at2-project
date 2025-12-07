@@ -20,6 +20,6 @@ from .views import (
 )
 
 urlpatterns = [
-    path('/', classify_view, name='home'),
+    path('', classify_view, name='home'),
     path('api/predictions/', prediction_for_image, name='prediction_for_image'),
 ]
