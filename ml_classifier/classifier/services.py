@@ -1,4 +1,5 @@
 import logging
+from datetime import datetime
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -9,6 +10,8 @@ logger.addHandler(file_handler)
 def action_logger(func):
     def wrapper(*args, **kwargs):
         user = args[0]
-        logger.info(f"[ACTION] anonymous user is performing {func.__name__}")
+        current_datetime = datetime.now()
+        logger.info(f"{current_datetime} - [ACTION] anonymous user is performing {func.__name__}")
         return func(*args, **kwargs)
     return wrapper
+
