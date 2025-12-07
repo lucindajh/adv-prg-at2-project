@@ -17,4 +17,19 @@
 - I merged the ml branch into my frontend branch to try and access the predict function- streamlit doesnt seem to like importing modules from outside the app's directory. This probably means i need to setup rest api calls to my classifier backend before i can do any testing of the predict functionality through the frontend.
 - I'll now work on my prediction model so I can get started on a view for predictions.
 
-  
+### Sat 6/12/2025
+- Starting with making a view so i can get the streamlit app working fully
+- my understanding of this process is I create the method using the REST framework in the classfifier/views directory (i'll need "POST" and "GET"), define a url for it in a url.py file i'll need to add to the classifier app, and use that url post the image and get the prediction
+- note: django objects.order_by method, "-" at start of the field name to order by indicates descending order
+- for now to get the prediction for an image I'm just getting a list ordered by (descending) predicted_at field, so just the most recent one. This should be fine for my use case at the moment but there could be a more fail-safe way to do it in future if I use the fields in the prediction model more effectively, or add one that can link the specific image sent to the prediction
+- I'm going to change the output of my predict function to a dict to make it easier to get the values i need
+- now moving on to testing the UI - i've connected up the urls and made and applied the first migrations, now running the test server gives me this error:
+  Using the URLconf defined in ml_classifier.urls, Django tried these URL patterns, in this order:
+    admin/
+    api/predictions [name='prediction_for_image']
+    The empty path didn’t match any of these.
+- My guess is I'm probably missing something in my ml_classifier urls
+- after reviewing the notifier app, my second guess is that my site is missing a home page. I'm just going to run the streamlit app and see what happens when i try to use that
+- I get the same error when trying to call to the api from the streamlit frontend
+- The error I was getting from the streamlit frontend was due to my url being written incorrectly in the api call. The calls are now going through to that url and i just need to fix the code
+- The front end is now working, and I will be finalising the issue and opening a pull request.
