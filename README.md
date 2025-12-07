@@ -41,3 +41,4 @@
 - Before moving on to the authentication issue, I'd like to just get some sort of logging working so I can see that it works and the output appears in the logs, so I'm going to change the action logger for now and come back to it later
 - The code now runs without errors but i dont see the output in the app.log file I made so I probably missed some configuration steps
 - Logs are going through now and I added a timestamp, I'm now going to move on to the observer to log prediction metadata
+- I implemented my observer so I can see in the logs the time between each step in the prediction process. This is useful for assessing any need for optimisation but is quite verbose so I may consider moving this elsewhere for V2.
