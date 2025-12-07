@@ -5,6 +5,6 @@ class PredictionObserver:
     def subscribe(self, func):
         self.subscribers.append(func)
 
-    def update(self, action):
+    def update(self, info):
         for func in self.subscribers:
-            func(action)
+            func(info)

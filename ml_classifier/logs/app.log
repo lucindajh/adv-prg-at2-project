@@ -1,2 +1,20 @@
 [ACTION] anonymous user is performing get_prediction_response
 2025-12-07 11:05:48.274165 - [ACTION] anonymous user is performing get_prediction_response
+2025-12-07 12:12:02.455969 - [ACTION] anonymous user is performing get_prediction_response
+2025-12-07 12:12:02.617630 - [PREDICT] model loaded
+2025-12-07 12:12:02.617630 - [PREDICT] created transforms
+2025-12-07 12:12:02.697639 - [PREDICT] output generated
+2025-12-07 12:12:02.698640 - [PREDICT] class names loaded
+2025-12-07 12:15:35.787759 - [ACTION] anonymous user is performing get_prediction_response
+2025-12-07 12:15:35.971751 - [PREDICT] model loaded
+2025-12-07 12:15:35.972748 - [PREDICT] created transforms
+2025-12-07 12:15:36.042518 - [PREDICT] output generated
+2025-12-07 12:15:36.043518 - [PREDICT] class names loaded
+2025-12-07 12:15:36.044518 - [PREDICT] probabilities generated. Top probabilities: [('tennis ball', 99.98899841308594), ('acorn', 0.005965753924101591), ('jackfruit', 0.0010476901661604643), ('soccer ball', 0.000562996428925544), ('ping-pong ball', 0.00046294531784951687)]
+2025-12-07 12:17:36.829618 - [ACTION] anonymous user is performing get_prediction_response
+2025-12-07 12:17:36.931526 - [PREDICT] model loaded
+2025-12-07 12:17:36.931526 - [PREDICT] created transforms
+2025-12-07 12:17:36.965538 - [PREDICT] output generated
+2025-12-07 12:17:36.966537 - [PREDICT] class names loaded
+2025-12-07 12:17:36.966537 - [PREDICT] probabilities generated. Top probabilities:
+[('tennis ball', 99.98899841308594), ('acorn', 0.005965753924101591), ('jackfruit', 0.0010476901661604643), ('soccer ball', 0.000562996428925544), ('ping-pong ball', 0.00046294531784951687)]
