@@ -1,10 +1,11 @@
 import json
+import asyncio
 from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAllowed, HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required, permission_required
 from ml.predict import predict
 from classifier.models import Prediction
-from classifier.services import action_logger
 from PIL import Image
 from io import BytesIO
 # Create your views here.
@@ -19,36 +20,27 @@ def serialise_prediction(prediction: Prediction) -> dict:
     }
 
 
-@action_logger
-def get_prediction_response(img: Image) -> dict:
-    prediction_output = predict(img)
-    prediction = Prediction.objects.create(
-        imagenet_class=prediction_output['class'],
-        probability=prediction_output['prob']
-    )
-    return serialise_prediction(prediction)
+def read_logs(log_file_path: str):
+    with open(log_file_path, "r") as file:
+        for line in file:
+            yield line.strip()
 
 
-def classify_view(request):
-    # logging.basicConfig(level=logging.INFO)
-    #
-    # user = create_user("admin", "Ben")
-    # upload_document(user, "project_plan.pdf")
-    #
-    # logs = []
-    # try:
-    #     for line in read_logs("notifier/logs.txt"):
-    #         logs.append(line)
-    # except FileNotFoundError:
-    #     logs.append("No logs yet.")
-    #
+@login_required
+@permission_required("classifier.view_prediction", raise_exception=True)
+def classifier_dashboard(request):
+    logs = []
+    try:
+        for line in read_logs("./logs/app.log"):
+            logs.append(line)
+    except FileNotFoundError:
+        logs.append("No logs yet.")
+
     # asyncio.run(fetch_all_metadata())
 
-    # return render(request, "notifier/index.html", {
-    #     "user": user,
-    #     "logs": logs
-    # })
-    return render(request, "notifier/index.html")
+    return render(request, "index.html", {
+        "logs": logs
+    })
 
 
 @csrf_exempt
@@ -66,7 +58,12 @@ def prediction_for_image(request):
             return JsonResponse({"error": "Image file invalid"}, status=400)
 
         if img:
-            return JsonResponse(get_prediction_response(img), status=200)
+            prediction_output = predict(img)
+            prediction = Prediction.objects.create(
+                imagenet_class=prediction_output['class'],
+                probability=prediction_output['prob']
+            )
+            return JsonResponse(serialise_prediction(prediction), status=200)
         else:
             return JsonResponse({"error": "Image not found"}, status=400)
     else:
