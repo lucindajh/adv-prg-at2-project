@@ -43,7 +43,6 @@ def classifier_dashboard(request):
     })
 
 
-
 @csrf_exempt
 def prediction_for_image(request):
     if request.method == "GET":
