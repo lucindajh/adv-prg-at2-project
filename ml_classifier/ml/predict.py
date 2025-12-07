@@ -15,13 +15,13 @@ transform = tv.transforms.Compose([
 ])
 
 classes = []
-with open("imagenet_classes.txt", "r") as file:
+with open("ml/imagenet_classes.txt", "r") as file:
     for line in file:
         classes.append(line.rstrip())
     file.close()
 
 
-def predict(img: PIL.Image) -> dict:
+def predict(img: Image) -> dict:
     """ Makes a prediction on an image
         Args:
             img: PIL image for the prediction
