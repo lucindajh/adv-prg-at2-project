@@ -16,10 +16,10 @@ from django.contrib import admin
 from django.urls import path
 from .views import (
     prediction_for_image,
-    classify_view
+    classifier_dashboard
 )
 
 urlpatterns = [
-    path('', classify_view, name='home'),
+    path('', classifier_dashboard, name='home'),
     path('api/predictions/', prediction_for_image, name='prediction_for_image'),
 ]
