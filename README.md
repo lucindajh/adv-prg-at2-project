@@ -33,3 +33,13 @@
 - I get the same error when trying to call to the api from the streamlit frontend
 - The error I was getting from the streamlit frontend was due to my url being written incorrectly in the api call. The calls are now going through to that url and i just need to fix the code
 - The front end is now working, and I will be finalising the issue and opening a pull request.
+
+### Sun 7/12/2025
+- Now finishing the logging/observer pattern
+- I'm going to seperate out some of the code in my prediction view so I can apply the action logger
+- I implemented the action logger, but it isn't working at this point (throws an error) as I haven't implemented the authentication functionality that would allow for a user to be determined
+- Before moving on to the authentication issue, I'd like to just get some sort of logging working so I can see that it works and the output appears in the logs, so I'm going to change the action logger for now and come back to it later
+- The code now runs without errors but i dont see the output in the app.log file I made so I probably missed some configuration steps
+- Logs are going through now and I added a timestamp, I'm now going to move on to the observer to log prediction metadata
+- I implemented my observer so I can see in the logs the time between each step in the prediction process. This is useful for assessing any need for optimisation but is quite verbose so I may consider moving this elsewhere for V2.
+- Before I move on to the authentication, I'm just going to finalise the ml module issue, which I hadn't yet done as it tests havent been implemented- at this point I've made changes to that module on several other branches so I think it will be best to just update it and then push it into main, and do the testing for it when I'm ready to work on the tests for the whole application.
