@@ -45,3 +45,5 @@
 - Before I move on to the authentication, I'm just going to finalise the ml module issue, which I hadn't yet done as it tests havent been implemented- at this point I've made changes to that module on several other branches so I think it will be best to just update it and then push it into main, and do the testing for it when I'm ready to work on the tests for the whole application.
 - for my mvp I think I only need to have a dashboard that can be logged in to, so that a user with the right permissions can view logs and prediction metadata, so in order to keep the frontend usable without having to log in to django, which I think may be an awkward process since the django app has to run in a seperate tab, I'm going to keep the action logs as-is with no specified user attached.
 - The last component I need to add before testing is user error messaging on the front end. This should just involve changing some of the streamlit code to incorporate dialogues.
+- The streamlit dialogues don't seem to work the way I need them too, so for error messaging I'm just going to stick with the regular streamlit errors I already have and merge this issue"
+
