@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from ml.predict import predict
 from classifier.models import Prediction
+from classifier.services import action_logger
 from PIL import Image
 from io import BytesIO
 # Create your views here.
@@ -16,6 +17,16 @@ def serialise_prediction(prediction: Prediction) -> dict:
         "imagenet_class": prediction.imagenet_class,
         "probability": prediction.probability
     }
+
+
+@action_logger
+def get_prediction_response(img: Image) -> dict:
+    prediction_output = predict(img)
+    prediction = Prediction.objects.create(
+        imagenet_class=prediction_output['class'],
+        probability=prediction_output['prob']
+    )
+    return serialise_prediction(prediction)
 
 
 def classify_view(request):
@@ -55,12 +66,7 @@ def prediction_for_image(request):
             return JsonResponse({"error": "Image file invalid"}, status=400)
 
         if img:
-            prediction_output = predict(img)
-            prediction = Prediction.objects.create(
-                imagenet_class=prediction_output['class'],
-                probability=prediction_output['prob']
-            )
-            return JsonResponse(serialise_prediction(prediction), status=200)
+            return JsonResponse(get_prediction_response(img), status=200)
         else:
             return JsonResponse({"error": "Image not found"}, status=400)
     else:
