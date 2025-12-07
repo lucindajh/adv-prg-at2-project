@@ -13,7 +13,7 @@ jobs:
 
     env:
       DJANGO_SETTINGS_MODULE: project.settings
-      PYTHONPATH: .
+      PYTHONPATH: ./ml_classifier/
       DEBUG: false
       SECRET_KEY: test-secret-key
       ALLOWED_HOSTS: localhost,127.0.0.1
