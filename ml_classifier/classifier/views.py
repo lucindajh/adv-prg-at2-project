@@ -6,24 +6,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required, permission_required
 from ml.predict import predict
 from classifier.models import Prediction
+from classifier.services import read_logs, serialise_prediction
 from PIL import Image
 from io import BytesIO
+
 # Create your views here.
-
-
-def serialise_prediction(prediction: Prediction) -> dict:
-    return {
-        "predicted_at": prediction.predicted_at,
-        "user": prediction.user,
-        "imagenet_class": prediction.imagenet_class,
-        "probability": prediction.probability
-    }
-
-
-def read_logs(log_file_path: str):
-    with open(log_file_path, "r") as file:
-        for line in file:
-            yield line.strip()
 
 
 @login_required

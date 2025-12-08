@@ -14,7 +14,11 @@ file_handler = logging.FileHandler('../ml_classifier/logs/app.log')
 logger.addHandler(file_handler)
 
 
-def log_process(process):
+def log_process(process: str):
+    """ function to log steps in the prediction process
+    Args:
+        process (str): a message representing the process to log
+    """
     logger.info(f"{datetime.now()} - [PREDICT] {process}")
 
 
