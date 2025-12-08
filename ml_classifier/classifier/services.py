@@ -1,5 +1,6 @@
 import logging
 from datetime import datetime
+from models import Prediction
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -20,3 +21,12 @@ def read_logs(log_file_path: str):
     with open(log_file_path, "r") as file:
         for line in file:
             yield line.strip()
+
+
+def serialise_prediction(prediction: Prediction) -> dict:
+    return {
+        "predicted_at": prediction.predicted_at,
+        "user": prediction.user,
+        "imagenet_class": prediction.imagenet_class,
+        "probability": prediction.probability
+    }
