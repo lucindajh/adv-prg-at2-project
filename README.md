@@ -49,3 +49,6 @@
 - so far I've written a couple of tests on the classifier views, I'm going to push those up and get the django workflow implemented so I can see my test coverage as I move forward
 - I got the workflow running, and it came back with an overall 75% coverage- I can also now see exactly which parts of the code I need to write tests for
 
+### Mon 8/12/2025
+- Now with testing done I'm ready to apply some final touches to clean up and finalise my code for production readiness. This involves some refactoring, as I need to move some excess functions out of my views file to a more appropriate location, and adding doctstrings and typehinting to my logic functions for readability
+- I also need to fix the workflow as its failing on the last check - I will attempt to fix it, or otherwise remove it.
