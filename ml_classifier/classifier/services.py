@@ -15,3 +15,8 @@ def action_logger(func):
         return func(*args, **kwargs)
     return wrapper
 
+
+def read_logs(log_file_path: str):
+    with open(log_file_path, "r") as file:
+        for line in file:
+            yield line.strip()
