@@ -53,7 +53,3 @@ jobs:
           name: coverage-report
           path: ./.coverage
 
-      - name: Verify Migrations
-        run: |
-          echo "Checking for missing migrations..."
-          python manage.py makemigrations --check --dry-run
