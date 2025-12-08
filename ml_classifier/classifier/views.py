@@ -4,9 +4,9 @@ from django.http import JsonResponse, HttpResponseBadRequest, HttpResponseNotAll
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required, permission_required
-from ml_classifier.ml.predict import predict
-from models import Prediction
-from services import read_logs, serialise_prediction
+from ml.predict import predict
+from classifier.models import Prediction
+from classifier.services import read_logs, serialise_prediction
 from PIL import Image
 from io import BytesIO
 

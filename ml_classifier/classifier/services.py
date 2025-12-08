@@ -1,6 +1,6 @@
 import logging
 from datetime import datetime
-from models import Prediction
+from classifier.models import Prediction
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
