@@ -15,6 +15,10 @@ logger.addHandler(file_handler)
 
 
 def log_process(process):
+    """ function to log steps in the prediction process
+    Args:
+        process (str): a message representing the process to log
+    """
     logger.info(f"{datetime.now()} - [PREDICT] {process}")
 
 
